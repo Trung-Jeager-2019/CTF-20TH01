@@ -1,0 +1,20 @@
+# We have p | q | n | e
+
+# Define | pt is plaintext | 
+
+# pseudocode to show how the rsa calculations were done
+import gmpy2
+
+
+
+N = p*q
+p = N // q
+q = N //p
+
+r = (q-1)*(p-1)
+
+d = gmpy2.divm(1,e,r)
+e = gmpy2.divm(1,d,r)
+
+c = gmpy2.powmod(pt,e,N)
+pt = gmpy2.powmod(c,d,N)
